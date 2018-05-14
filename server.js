@@ -10,6 +10,6 @@ var port = Number(process.env.PORT || 8000);
 app.use("/", express.static(path.join(__dirname, "public")));
 app.use('/', require('./api').route)
 
-var server = app.listen(3000, () => {
+var server = app.listen(port, () => {
     console.log("Server is running at http://localhost:port %d", server.address().port);
 });
