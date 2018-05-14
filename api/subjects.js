@@ -13,9 +13,7 @@ route.get('/:id/teachers', (req, res) => {
 
     let Sid = req.params.id
 
-
     SubTeachMap.findAll({
-
         where: {
             subjectId: Sid
         },
@@ -36,8 +34,6 @@ route.get('/:id/teachers', (req, res) => {
             res.json(teacher)
         })
     })
-
-
 })
 
 route.get('/:id', (req, res) => {

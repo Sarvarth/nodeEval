@@ -11,18 +11,18 @@ const StudentBatchMap = require('../db').StudentBatchMap
  * GET requests
  */
 route.get('/:id/batches', (req, res) => {
-    let url=req.path;
-    let arr=url.split('/');
+    let url = req.path;
+    let arr = url.split('/');
     //odd place index will give ids
 
-    const sId=arr[1]
+    const sId = arr[1]
 
     StudentBatchMap.findAll({
-        where:{
-            studentId:sId
+        where: {
+            studentId: sId
         },
-        
-    }).then((batchIds)=>{
+
+    }).then((batchIds) => {
         res.status(200).json(batchIds)
     })
 
@@ -34,9 +34,9 @@ route.get('/:id', (req, res) => {
 })
 route.get('/', (req, res) => {
     Student.findAll({})
-    .then((students)=>{
-        res.status(200).json(students)
-    })
+        .then((students) => {
+            res.status(200).json(students)
+        })
 })
 
 
@@ -47,15 +47,15 @@ route.get('/', (req, res) => {
  */
 // Add new student to the database
 route.post('/', (req, res) => {
-    const studentName=req.query.name
-   
-    const obj=new Student({
-        name:studentName
+    const studentName = req.query.name
+
+    const obj = new Student({
+        name: studentName
     })
     obj.save()
 
     res.send({
-        sucess:true
+        sucess: true
     })
 })
 
@@ -65,23 +65,23 @@ route.post('/', (req, res) => {
 //Adding Batch
 
 route.post('/:id/batches/:bId', (req, res) => {
-    let url=req.path;
-    let arr=url.split('/');
+    let url = req.path;
+    let arr = url.split('/');
     //odd place index will give ids
     //inserting Batch Table
-    const sId=req.params.id
-    const bId=req.params.bId
+    const sId = req.params.id
+    const bId = req.params.bId
+    const obj = new StudentBatchMap({
+        batchId: bId,
+        studentId: sId
+    })
 
-     const obj= new StudentBatchMap({
-         batchId:bId,
-         studentId:sId
-     })   
+    obj.save()
 
-     obj.save()
-
-    console.log(arr)
-  
-    res.status(200).json({done:true})
+    // console.log(arr)
+    res.status(200).json({
+        done: true
+    })
 })
 
 
