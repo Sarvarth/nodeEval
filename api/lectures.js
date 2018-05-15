@@ -7,7 +7,6 @@ route.post('/:id/subjects/:sId/teachers/:tId', (req, res) => {
     let lId = req.params.id
     let sId = req.params.sId
     let tId = req.params.tId
-
     const SubTeachObj = new SubTeachMap({
         subjectId: sId,
         teacherId: tId,
@@ -17,7 +16,7 @@ route.post('/:id/subjects/:sId/teachers/:tId', (req, res) => {
     SubTeachObj.save();
 
     res.send({
-        sucess: true
+        success: true
     })
 })
 

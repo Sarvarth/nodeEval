@@ -13,7 +13,7 @@ const StudentBatchMap = require('../db').StudentBatchMap
 
 route.get('/:id/batches/:Bid/students', (req, res) => {
     let batchID = req.params.Bid
-    console.log((batchID))
+    console.log("batchId is: " + batchID)
     StudentBatchMap.findAll({
         where: {
             batchId: parseInt(batchID)
@@ -154,8 +154,6 @@ route.get('/', (req, res) => {
     })
 })
 
-
-
 /**
  *  POST requests
  */
@@ -171,7 +169,7 @@ route.post('/', (req, res) => {
 
     courseObj.save();
     res.send({
-        sucess: true
+        success: true
     })
 })
 
@@ -198,7 +196,7 @@ route.post('/:id/batches', (req, res) => {
 
 
     res.status(200).json({
-        done: true
+        success: true
     })
 })
 

@@ -7,7 +7,7 @@ const Op = Sequelize.Op;
 const SubTeachMap = require('../db').SubTeachMap
 const Batch = require('../db').Batch
 const Lecture = require('../db').Lecture
-
+const Teacher = require('../db').Teacher
 
 route.get('/:id/batches', (req, res) => {
     let tId = req.params.id
@@ -87,7 +87,7 @@ route.post('/', (req, res) => {
 
     TeacherObj.save();
     res.send({
-        sucess: true
+        success: true
     })
 })
 

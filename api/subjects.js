@@ -73,7 +73,7 @@ route.post('/', (req, res) => {
 
     SubjectObj.save();
     res.send({
-        sucess: true
+        success: true
     })
 })
 

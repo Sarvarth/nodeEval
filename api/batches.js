@@ -33,7 +33,9 @@ route.get('/', (req, res) => {
         }).then((batch) => {
             batch.setCourse(course, { save: false });
             batch.save();
-            res.status(201).send(batch);
+            res.status(201).send({
+                success: true
+            });
         }).catch(error => {
             res.send(501).send({
                 error: "could not create the batch"

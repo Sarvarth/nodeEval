@@ -4,9 +4,6 @@ const Student = require('../db').Student
 const Batch = require('../db').Batch
 const StudentBatchMap = require('../db').StudentBatchMap
 
-
-
-
 /**
  * GET requests
  */
@@ -55,7 +52,7 @@ route.post('/', (req, res) => {
     obj.save()
 
     res.send({
-        sucess: true
+        success: true
     })
 })
 
@@ -75,12 +72,10 @@ route.post('/:id/batches/:bId', (req, res) => {
         batchId: bId,
         studentId: sId
     })
-
     obj.save()
-
     // console.log(arr)
     res.status(200).json({
-        done: true
+        success: true
     })
 })
 
