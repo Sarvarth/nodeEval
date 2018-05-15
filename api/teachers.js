@@ -71,9 +71,6 @@ route.get('/', (req, res) => {
         })
 })
 
-
-
-
 /**
  * POST requests
  */
